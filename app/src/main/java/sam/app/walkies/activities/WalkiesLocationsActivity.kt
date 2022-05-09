@@ -35,12 +35,12 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = walkiesLocationAdapter(app.walkiesLocations.findAll(),this)
-        loadwalkiesLocations()
+        loadWalkiesLocations()
         registerRefreshCallback()
     }
 
-    private fun loadwalkiesLocations() {
-        showwalkiesLocations(app.walkiesLocations.findAll())
+    private fun loadWalkiesLocations() {
+        showWalkiesLocations(app.walkiesLocations.findAll())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -71,7 +71,7 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { loadwalkiesLocations() }
+            { loadWalkiesLocations() }
     }
 
     private fun registerMapCallback() {
@@ -80,7 +80,7 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
             { }
     }
 
-    fun showwalkiesLocations (walkiesLocations: List<WalkiesLocationModel>) {
+    private fun showWalkiesLocations (walkiesLocations: List<WalkiesLocationModel>) {
         binding.recyclerView.adapter = walkiesLocationAdapter(walkiesLocations, this)
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
