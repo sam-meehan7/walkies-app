@@ -1,4 +1,4 @@
-package org.wit.walkies
+package sam.app.walkies
 
 import android.content.Context
 import android.content.Intent

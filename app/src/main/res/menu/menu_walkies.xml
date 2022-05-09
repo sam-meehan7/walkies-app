@@ -5,7 +5,7 @@
     <item
         android:visible="false"
         android:id="@+id/item_delete"
-        android:title="@string/menu_deletewalkiesLocation"
+        android:title="@string/menu_delete_walkiesLocation"
         app:showAsAction="always"/>
 
     <item

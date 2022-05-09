@@ -13,10 +13,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import sam.app.walkies.models.WalkiesLocationModel
 
 import sam.app.walkies.main.MainApp
-import org.wit.walkies.readImageFromPath
+import sam.app.walkies.readImageFromPath
 import sam.app.walkies.R
 import sam.app.walkies.databinding.ActivityWalkiesMapsBinding
 import sam.app.walkies.databinding.WalkiesLocationContentBinding
+import timber.log.Timber
 
 
 class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListener{
@@ -96,7 +97,7 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
     }
 
     private fun setPoiClick(map: GoogleMap) {
-        map.setOnPoiClickListener { poi ->
+        map.setOnPoiClickListener() { poi ->
             val poiMarker = map.addMarker(
                 MarkerOptions()
                     .position(poi.latLng)
@@ -106,5 +107,6 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         }
     }
 
-
 }
+
+

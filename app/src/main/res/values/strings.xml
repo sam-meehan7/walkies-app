@@ -12,6 +12,11 @@
     <string name="change_walkiesLocation_image">Change Walkies Location image</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
-    <string name="menu_deletewalkiesLocation">Delete</string>
+    <string name="menu_delete_walkiesLocation">Delete</string>
     <string name="title_activity_walkies_maps">Locations For Walkies</string>
+    <string name="walkies_map_title">Click a marker to view your walkies location!</string>
+    <string name="walkies_map_text_view_placeholder">Your favourite walkies location</string>
+
+
+
 </resources>

@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 import sam.app.walkies.main.MainApp
 import sam.app.walkies.models.Location
 import sam.app.walkies.models.WalkiesLocationModel
-import org.wit.walkies.showImagePicker
+import sam.app.walkies.showImagePicker
 import sam.app.walkies.R
 import sam.app.walkies.databinding.ActivityWalkiesLocationBinding
 import timber.log.Timber.i
@@ -21,10 +21,11 @@ import timber.log.Timber.i
 class WalkiesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWalkiesLocationBinding
-    var walkiesLocation = WalkiesLocationModel()
-    lateinit var app: MainApp
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
+    var walkiesLocation = WalkiesLocationModel()
+    lateinit var app: MainApp
+
     var location = Location(52.245696, -7.139102, 15f)
     var edit = false
 

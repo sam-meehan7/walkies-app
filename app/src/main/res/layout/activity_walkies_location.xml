@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.walkies.sam.wit.walkies.activities.WalkiesActivity">
+    tools:context="sam.app.walkies.activities.WalkiesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,7 +45,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
-                    android:autofillHints=""
                     android:hint="@string/hint_walkiesLocationTitle"
                     android:inputType="text"
                     android:maxLength="25"
