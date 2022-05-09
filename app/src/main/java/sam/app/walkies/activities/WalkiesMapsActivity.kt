@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -53,7 +54,7 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         return false
     }
 
-    fun showwalkiesLocationImage(walkiesLocation: WalkiesLocationModel) {
+    fun showLocationImage(walkiesLocation: WalkiesLocationModel) {
         val currentImage: ImageView = findViewById(R.id.currentImage)
         currentImage.setImageBitmap(readImageFromPath(this, walkiesLocation.image.toString()))
     }
@@ -63,7 +64,8 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         map.uiSettings.isZoomControlsEnabled = true
         app.walkiesLocations.findAll().forEach{
             val loc = LatLng(it.lat, it.lng)
-            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc)
+            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc).icon(
+                BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
             map.addMarker(options).tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
         }
