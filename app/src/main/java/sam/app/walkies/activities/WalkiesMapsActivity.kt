@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -33,7 +34,6 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         binding = ActivityWalkiesMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-
         contentBinding = WalkiesLocationContentBinding.bind(binding.root)
         contentBinding.mapView.onCreate(savedInstanceState)
         contentBinding.mapView.getMapAsync{
@@ -46,10 +46,8 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         val currentTitle: TextView = findViewById(R.id.currentTitle)
         val currentDescription: TextView = findViewById(R.id.currentDescription)
         val currentImage: ImageView = findViewById(R.id.currentImage)
-
         currentTitle.text = marker.title
         currentDescription.text = marker.snippet
-
         return false
     }
 
@@ -59,16 +57,16 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
     }
 
 
-    fun configureMap() {
+    private fun configureMap() {
         map.uiSettings.isZoomControlsEnabled = true
         app.walkiesLocations.findAll().forEach{
             val loc = LatLng(it.lat, it.lng)
-            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc)
+            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc).icon(BitmapDescriptorFactory.defaultMarker(
+                BitmapDescriptorFactory.HUE_BLUE))
             map.addMarker(options).tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
         }
         map.setOnMarkerClickListener(this)
-        setPoiClick(map)
     }
 
     override fun onDestroy() {
@@ -102,7 +100,8 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
                 MarkerOptions()
                     .position(poi.latLng)
                     .title(poi.name)
-            )
+                    .icon(BitmapDescriptorFactory.defaultMarker(
+                        BitmapDescriptorFactory.HUE_CYAN)))
             poiMarker.showInfoWindow()
         }
     }
