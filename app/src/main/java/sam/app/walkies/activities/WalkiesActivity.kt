@@ -21,10 +21,11 @@ import timber.log.Timber.i
 class WalkiesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWalkiesLocationBinding
-    private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
-    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var walkiesLocation = WalkiesLocationModel()
     lateinit var app: MainApp
+    private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
+
 
     var location = Location(52.245696, -7.139102, 15f)
     var edit = false
