@@ -8,9 +8,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import sam.app.walkies.R
 import sam.app.walkies.adapters.walkiesLocationAdapter
 import sam.app.walkies.adapters.walkiesLocationListener
+import sam.app.walkies.databinding.ActivityRegisterBinding
 import sam.app.walkies.databinding.ActivityWalkiesLocationListBinding
 import sam.app.walkies.main.MainApp
 import sam.app.walkies.models.WalkiesLocationModel
@@ -21,6 +23,8 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
     private lateinit var binding: ActivityWalkiesLocationListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapsIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var firebaseAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,8 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
         registerMapCallback()
+        firebaseAuth = FirebaseAuth.getInstance()
+
 
         app = application as MainApp
 
@@ -57,6 +63,12 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
             R.id.item_map -> {
                 val launcherIntent = Intent(this, WalkiesMapsActivity::class.java)
                 mapsIntentLauncher.launch(launcherIntent)
+            }
+            R.id.miLogout -> {
+                firebaseAuth.signOut()
+                val intent = Intent(this, Login::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
