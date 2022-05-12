@@ -54,7 +54,6 @@ class Login : AppCompatActivity() {
     }
     override fun onStart() {
         super.onStart()
-
         if(firebaseAuth.currentUser != null){
             val intent = Intent(this, WalkiesLocationsActivity::class.java)
             startActivity(intent)

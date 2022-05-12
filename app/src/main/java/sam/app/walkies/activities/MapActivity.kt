@@ -4,11 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -43,6 +40,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
         map.setOnMarkerDragListener(this)
         map.setOnMarkerClickListener(this)
+        // shows the zoom controls on map
+        map.setPadding(10, 10, 10, 10)
     }
 
     override fun onMarkerDragStart(marker: Marker) {
