@@ -78,8 +78,7 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         map.uiSettings.isZoomControlsEnabled = true
         app.walkiesLocations.findAll().forEach{
             val loc = LatLng(it.lat, it.lng)
-            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc).icon(BitmapDescriptorFactory.defaultMarker(
-                BitmapDescriptorFactory.HUE_BLUE))
+            val options = MarkerOptions().title(it.title).snippet(it.description).position(loc).icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_icon))
             map.addMarker(options).tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
         }
