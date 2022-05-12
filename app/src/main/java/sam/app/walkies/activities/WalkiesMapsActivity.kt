@@ -1,7 +1,10 @@
 package sam.app.walkies.activities
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +43,20 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
             map = it
             configureMap()
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_map, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.miBack -> {
+                val intent = Intent(this, WalkiesLocationsActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
