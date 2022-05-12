@@ -15,6 +15,6 @@ class MainApp : Application() {
         Timber.plant(Timber.DebugTree())
         walkiesLocations = WalkiesLocationJSONStore(applicationContext)
         i("Walkies Application has started")
-
     }
+
 }
