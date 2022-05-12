@@ -43,7 +43,7 @@
                 <EditText
                     android:id="@+id/walkiesLocationTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:hint="@string/hint_walkiesLocationTitle"
                     android:inputType="text"
