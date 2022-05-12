@@ -5,7 +5,7 @@
     <string name="hint_walkiesLocationDescription">Description </string>
     <string name="menu_addwalkiesLocation">Add</string>
     <string name="menu_cancelwalkiesLocation">Cancel</string>
-    <string name="enter_walkiesLocation_title"> Please enter a Title For The Walkies Location </string>
+    <string name="enter_walkiesLocation_title">Please enter a Title For The Walkies Location </string>
     <string name="save_walkiesLocation"> Save Location </string>
     <string name="button_addImage"> Add Image </string>
     <string name="select_walkiesLocation_image">Select image</string>
@@ -15,4 +15,5 @@
     <string name="menu_delete_walkiesLocation">Delete</string>
     <string name="title_activity_walkies_maps">Locations For Walkies</string>
     <string name="walkies_map_text_view_placeholder">Click a dog to view your walkies location!</string>
+    <string name="location_error_message">Please choose a location</string>
 </resources>

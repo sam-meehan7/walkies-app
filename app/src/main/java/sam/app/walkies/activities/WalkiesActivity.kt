@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
@@ -63,16 +64,24 @@ class WalkiesActivity : AppCompatActivity() {
             if (walkiesLocation.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_walkiesLocation_title, Snackbar.LENGTH_LONG)
                         .show()
-            } else {
+            }
+
+            if (walkiesLocation.lat.equals(0.0) || walkiesLocation.lng.equals(0.0)) {
+                Snackbar.make(it,R.string.location_error_message, Snackbar.LENGTH_LONG)
+                    .show()
+            }
+
+            else {
                 if (edit) {
                     app.walkiesLocations.update(walkiesLocation.copy())
+                    setResult(RESULT_OK)
+                    finish()
                 } else {
                     app.walkiesLocations.create(walkiesLocation.copy())
+                    setResult(RESULT_OK)
+                    finish()
                 }
             }
-            i("add Button Pressed: $walkiesLocation")
-            setResult(RESULT_OK)
-            finish()
         }
 
         binding.chooseImage.setOnClickListener {
@@ -80,7 +89,7 @@ class WalkiesActivity : AppCompatActivity() {
         }
 
         binding.walkiesLocationLocation.setOnClickListener {
-            var location = Location(52.245696, -7.139102, 15f)
+            var location = Location(52.31732006318825, -6.562802158646359, 12f)
             if (walkiesLocation.zoom != 0f) {
                 location.lat =  walkiesLocation.lat
                 location.lng = walkiesLocation.lng
@@ -129,7 +138,7 @@ class WalkiesActivity : AppCompatActivity() {
                                    .load(walkiesLocation.image)
                                    .into(binding.walkiesLocationImage)
                             binding.chooseImage.setText(R.string.change_walkiesLocation_image)
-                        } // end of if
+                        }
                     }
                     RESULT_CANCELED -> { } else -> { }
                 }
