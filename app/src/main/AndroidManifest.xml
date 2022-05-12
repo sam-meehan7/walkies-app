@@ -12,20 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.walkiesLocation">
+
+
         <activity
-            android:name=".activities.LogoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Register"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Login"
+            android:name=".activities.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.Register"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Login"
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".activities.WalkiesMapsActivity"
@@ -43,7 +47,7 @@
             android:label="@string/title_activity_map" />
         <activity
             android:name=".activities.WalkiesLocationsActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".activities.WalkiesActivity" />
     </application>
 
