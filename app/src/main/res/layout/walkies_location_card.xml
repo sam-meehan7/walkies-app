@@ -42,19 +42,35 @@
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/description"
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageIcon"
+                app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle"
+                tools:text="Description" />
+
+        <TextView
+            android:id="@+id/difficultyLevel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="28dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:textAlignment="viewStart"
+            android:text="Difficulty"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageIcon"
-            app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle"
-            tools:text="Description" />
+            app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

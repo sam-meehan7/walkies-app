@@ -36,6 +36,7 @@ class walkiesLocationAdapter constructor(private var walkiesLocations: List<Walk
         fun bind(walkiesLocation: WalkiesLocationModel, listener: walkiesLocationListener) {
             binding.walkiesLocationTitle.text = walkiesLocation.title
             binding.description.text = walkiesLocation.description
+            binding.difficultyLevel.text = walkiesLocation.difficulty
             Picasso.get().load(walkiesLocation.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onwalkiesLocationClick(walkiesLocation) }
         }

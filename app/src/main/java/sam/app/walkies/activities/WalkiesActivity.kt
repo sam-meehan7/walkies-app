@@ -39,6 +39,7 @@ class WalkiesActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
+        setupNumberPickerForStringValues()
 
         app = application as MainApp
 
@@ -49,7 +50,7 @@ class WalkiesActivity : AppCompatActivity() {
             walkiesLocation = intent.extras?.getParcelable("walkiesLocation_edit")!!
             binding.walkiesLocationTitle.setText(walkiesLocation.title)
             binding.description.setText(walkiesLocation.description)
-            binding.btnAdd.setText(R.string.save_walkiesLocation)
+            binding.difficultyPicker.value = walkiesLocation.difficulty.toInt()
             Picasso.get()
                 .load(walkiesLocation.image)
                 .into(binding.walkiesLocationImage)
@@ -60,7 +61,8 @@ class WalkiesActivity : AppCompatActivity() {
 
         binding.btnAdd.setOnClickListener() {
             walkiesLocation.title = binding.walkiesLocationTitle.text.toString()
-            walkiesLocation.description = binding.description.text.toString()
+            walkiesLocation.description =  binding.description.text.toString()
+            walkiesLocation.difficulty = binding.difficultyPicker.value.toString()
             if (walkiesLocation.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_walkiesLocation_title, Snackbar.LENGTH_LONG)
                         .show()
@@ -103,6 +105,34 @@ class WalkiesActivity : AppCompatActivity() {
         registerImagePickerCallback()
         registerMapCallback()
     }
+
+    private fun setupNumberPickerForStringValues() {
+        val difficultyPicker = binding.difficultyPicker
+        val values = arrayOf("Easy", "Medium", "Hard")
+        difficultyPicker.minValue = 0
+        difficultyPicker.maxValue = values.size - 1
+        difficultyPicker.displayedValues = values
+        difficultyPicker.wrapSelectorWheel = true
+        difficultyPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+            val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    private fun setupNumberPicker() {
+        val numberPicker = binding.difficultyPicker
+        numberPicker.minValue = 0
+        numberPicker.maxValue = 10
+        numberPicker.wrapSelectorWheel = true
+        numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+            val text = "Changed from $oldVal to $newVal"
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_walkies, menu)

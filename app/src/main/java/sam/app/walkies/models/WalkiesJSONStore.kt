@@ -49,6 +49,7 @@ class WalkiesLocationJSONStore(private val context: Context) : WalkiesLocationSt
         if (foundWalkiesLocation != null) {
             foundWalkiesLocation.title = walkiesLocation.title
             foundWalkiesLocation.description = walkiesLocation.description
+            foundWalkiesLocation.difficulty = walkiesLocation.difficulty
             foundWalkiesLocation.image = walkiesLocation.image
             foundWalkiesLocation.lat = walkiesLocation.lat
             foundWalkiesLocation.lng = walkiesLocation.lng
