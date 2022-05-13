@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -59,16 +60,20 @@ class WalkiesMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListene
         return super.onOptionsItemSelected(item)
     }
 
+
+    // currentDifficulty can be used to show difficulty on map, when trying to implement it, i could only get one snipit to show so I chose description
     override fun onMarkerClick(marker: Marker): Boolean {
         val currentTitle: TextView = findViewById(R.id.currentTitle)
         val currentDescription: TextView = findViewById(R.id.currentDescription)
+//        val currentDifficulty: TextView = findViewById(R.id.currentDifficulty)
         val currentImage: ImageView = findViewById(R.id.currentImage)
         currentTitle.text = marker.title
         currentDescription.text = marker.snippet
         return false
     }
 
-    fun showwalkiesLocationImage(walkiesLocation: WalkiesLocationModel) {
+    // tried to implement images on info window on map
+    fun showWalkiesLocationImage(walkiesLocation: WalkiesLocationModel) {
         val currentImage: ImageView = findViewById(R.id.currentImage)
         currentImage.setImageBitmap(readImageFromPath(this, walkiesLocation.image.toString()))
     }

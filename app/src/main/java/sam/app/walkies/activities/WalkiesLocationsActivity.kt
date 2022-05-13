@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.walkies_location_card.*
 import sam.app.walkies.R
 import sam.app.walkies.adapters.walkiesLocationAdapter
 import sam.app.walkies.adapters.walkiesLocationListener
@@ -51,6 +52,12 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun convertValues() {
+        if(difficultyLevel.text.equals("0")){
+            difficultyLevel.text == "Easy"
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
