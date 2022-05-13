@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import sam.app.walkies.R
-import sam.app.walkies.databinding.ActivityLoginBinding
 import sam.app.walkies.databinding.ActivityRegisterBinding
 
-class Register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityRegisterBinding
     private lateinit var firebaseAuth:FirebaseAuth
@@ -24,7 +22,7 @@ class Register : AppCompatActivity() {
 
 
         binding.textView.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -37,7 +35,7 @@ class Register : AppCompatActivity() {
                 if (password == confirmPasswoord){
                     firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
                         if (it.isSuccessful){
-                            val intent = Intent(this, Login::class.java)
+                            val intent = Intent(this, LoginActivity::class.java)
                             startActivity(intent)
                         }
                         else{
