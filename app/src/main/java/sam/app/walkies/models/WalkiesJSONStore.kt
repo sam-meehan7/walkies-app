@@ -34,7 +34,6 @@ class WalkiesLocationJSONStore(private val context: Context) : WalkiesLocationSt
     }
 
     override fun findAll(): MutableList<WalkiesLocationModel> {
-        logAll()
         return walkiesLocations
     }
 

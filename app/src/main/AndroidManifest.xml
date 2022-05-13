@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.Register"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.Login"
+            android:name=".activities.LoginActivity"
             android:exported="true">
 
         </activity>
