@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import sam.app.walkies.R
 import sam.app.walkies.adapters.walkiesLocationAdapter
 import sam.app.walkies.adapters.walkiesLocationListener
-import sam.app.walkies.databinding.ActivityRegisterBinding
 import sam.app.walkies.databinding.ActivityWalkiesLocationListBinding
 import sam.app.walkies.main.MainApp
 import sam.app.walkies.models.WalkiesLocationModel
@@ -66,7 +65,7 @@ class WalkiesLocationsActivity : AppCompatActivity(), walkiesLocationListener {
             }
             R.id.miLogout -> {
                 firebaseAuth.signOut()
-                val intent = Intent(this, Login::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }
