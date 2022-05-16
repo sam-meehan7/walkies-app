@@ -56,20 +56,45 @@
                 app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle"
                 tools:text="Description" />
 
-        <TextView
-            android:id="@+id/difficultyLevel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="28dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textAlignment="viewStart"
-            android:text="Difficulty"
+        <LinearLayout
+            android:layout_width="329dp"
+            android:layout_height="46dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageIcon"
-            app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle" />
+            app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle">
+
+            <TextView
+                android:id="@+id/difficultyLevelPrefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Difficulty:"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageIcon"
+                app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle" />
+
+            <TextView
+                android:id="@+id/difficultyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Difficulty"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageIcon"
+                app:layout_constraintTop_toBottomOf="@id/walkiesLocationTitle" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
