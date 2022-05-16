@@ -16,4 +16,5 @@
     <string name="title_activity_walkies_maps">Locations For Walkies</string>
     <string name="walkies_map_text_view_placeholder">Click a dog to view your walkies location!</string>
     <string name="location_error_message">Please choose a location</string>
+    <string name="save_walkies_location">Save Walkies Location</string>
 </resources>

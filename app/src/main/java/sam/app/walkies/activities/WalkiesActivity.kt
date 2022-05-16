@@ -1,5 +1,6 @@
 package sam.app.walkies.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +58,7 @@ class WalkiesActivity : AppCompatActivity() {
             if (walkiesLocation.image != Uri.EMPTY) {
                 binding.chooseImage.setText(R.string.change_walkiesLocation_image)
             }
+            binding.btnAdd.text = getString(R.string.save_walkies_location)
         }
 
         binding.btnAdd.setOnClickListener() {
